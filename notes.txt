@@ -1,0 +1,25 @@
+- yarn init -y
+- add script for start
+- add dist and index.html
+- add script tag to add bundel.js which is created with webpack
+    -install webpack webpack-dev-server webpack-cli as devDeps
+    - package.json start script will be "webpack serve --config ./webpack.config.js --mode development
+         to get files served from erbpack server and bundled as configured in webpack.config.js
+- Add babel dev dependencies @babel/core @babel/preset-env (babel-loader for webpack use)
+    -add babel preset to .babelrc file
+    - add babel-loader to webpack.config.js to tell webpack to use babel for .js ,.jsx ,.ts or .tsx files
+- Now React stuff
+    -add @babel/preset-react to devDeps
+    -add "@babel/preset-react" to .babelrc persets
+    - add react and react-dom
+    -hot-reload
+        -add react-hot-loader in devDeps
+        -add HotModuleReplacementPlugin plugin
+        -add hot:true in devServer
+        -index.js should have module.hot.accept()
+- Webpack advanced concepts to add
+    -add html-webpack-plugin in devDeps
+----------------------Done with react setup------------------------------------        
+- Add module federation plugin in webpack config
+-Change reomteEntery based on local or remote host of components
+    -here we are using same repo for all the micro-frontends so we will be using same dist folder of core-ui for remoteEntry.js of each app

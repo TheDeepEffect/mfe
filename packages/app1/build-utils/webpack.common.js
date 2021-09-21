@@ -21,7 +21,7 @@ module.exports={
         extensions: ['*', '.js','.jsx']
       },
     output:{
-        path:path.resolve(__dirname,'..','../core-ui/dist/app1'),
+        path: path.resolve(__dirname, '..', './dist/app1'),
         filename:'bundle.js',
     },
     plugins: [
@@ -34,6 +34,7 @@ module.exports={
                 filename:'remoteEntry.js',
                 exposes:{
                     "./App":"./src/App",
+                    "./exports": "./src/exports.js"
                 },
                 shared:{
                     ...deps,
@@ -58,7 +59,7 @@ module.exports={
     ],
     devServer:{
         port:3001,
-        contentBase:path.resolve(__dirname,'..','../core-ui/dist/app1'),
+        contentBase: path.resolve(__dirname, '..', './dist'),
         hot:true,
     }
 }

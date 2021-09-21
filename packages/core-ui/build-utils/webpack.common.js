@@ -29,7 +29,7 @@ module.exports={
         new ModuleFederationPlugin({
             name:'core-ui',
             remotes:{
-                app1:`app1@${getRemoteEntry('app1')}`
+                app1: `app1@${getRemoteEntry('app1', 3001)}`
             },
             shared:{
                 ...deps,
@@ -55,11 +55,11 @@ module.exports={
     }
 };
 
-function getRemoteEntry(appName){
+function getRemoteEntry(appName, portNumber) {
     const {  HOSTNAME = '' } = process.env;
     if(!HOSTNAME){
-        return `//localhost:3000/${appName}/remoteEntry.js`;
+        return `//localhost:${portNumber}/${appName}/remoteEntry.js`;
     }else{
-        return `//${HOSTNAME}/300/${appName}/remoteEntry.js`;
+        return `//${HOSTNAME}/${appName}/remoteEntry.js`;
     }
 }

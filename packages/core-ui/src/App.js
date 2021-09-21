@@ -1,8 +1,8 @@
 import React from 'react';
 import {ErrorBoundary} from 'react-error-boundary'
 import { Provider } from 'react-redux';
+import { NameChanger } from './NameChanger';
 import { store } from './store/store';
-
 const App1=React.lazy(()=>import('app1/App'));
 
 export const App=()=>{
@@ -13,9 +13,11 @@ export const App=()=>{
       Core-ui-1
       <ErrorBoundary FallbackComponent={ErrorFallback}>
         <React.Suspense fallback="Loading App1" >
+              <NameChanger />
         <App1
           store={store}
         />
+
         </React.Suspense>
         </ErrorBoundary>
         </div>

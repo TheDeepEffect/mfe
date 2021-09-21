@@ -8,7 +8,9 @@ const App=()=>{
     const dispatch = useDispatch();
     return (
         <div>
-        App name:{JSON.stringify(state)}
+            <h1>This is App1</h1>
+            App1 name: {state?.app1?.appName}<br />
+            Core-ui name: {state?.coreUI?.appName}
         <div>
             <input
             type="text"
@@ -20,9 +22,11 @@ const App=()=>{
             <button
                 onClick={()=>dispatch(changeAppNameAction(appName))}
             >
-                Change name
+                    Change App1 name from App1
             </button>
         </div>
+            Both states together into App1 look like this
+            {JSON.stringify(state)}
         </div>
     )
 };
